@@ -29,7 +29,20 @@ fastesign:
 三、开始使用
 
 ```java
+public class EsignTest {
 
+    @Autowired
+    FastEsignService esignService;
+
+    String docTemplateId = "d2dcab327b4******dfd1d7dd17";
+    
+    @Test
+    void docTemplate() {
+        EsignResponse<DocTemplateResponse> r = esignService.getDocTemplateService().get(docTemplateId);
+        log.info("返回: r={}", JsonUtils.toPrettyJson(r));
+    }
+
+}
 ```
 
 
