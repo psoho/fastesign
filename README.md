@@ -1,5 +1,14 @@
-## 介绍
 
+<p align="center">
+  <a href="https://github.com/psoho/fastesign" class="link github-link" target="_blank"><img style="max-width: 100px;" alt="GitHub Repo stars" src="https://img.shields.io/github/stars/psoho/fastesign?style=social"></a>
+  <a href="https://gitee.com/psoho/fastesign" class="link gitee-link" target="_blank"><img style="max-width: 100px;" alt="gitee Repo stars" src="https://gitee.com/psoho/fastesign/badge/star.svg"></a>
+  <img alt="csharp" src="https://img.shields.io/badge/language-java-red.svg">
+  <img alt="license" src="https://img.shields.io/badge/license-MIT-blue.svg">
+  <img alt="version" src="https://img.shields.io/badge/version-1.1.0-brightgreen">
+</p>
+
+
+## 介绍
 
 由于e签宝官方提供的demo，杂乱无章并且没有进行API接口的封装，加密方式也比较特殊，导致开发接入成本很高。
 
@@ -15,7 +24,7 @@
 <dependency>
     <groupId>cn.psoho</groupId>
     <artifactId>fastesign-starter</artifactId>
-    <version>1.0.0</version>
+    <version>1.1.0</version>
 </dependency>
 ```
 
