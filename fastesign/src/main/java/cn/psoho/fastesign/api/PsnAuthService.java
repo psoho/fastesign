@@ -1,10 +1,7 @@
 package cn.psoho.fastesign.api;
 
 import cn.psoho.fastesign.bean.EsignResponse;
-import cn.psoho.fastesign.bean.auth.IdentityInfoRequest;
-import cn.psoho.fastesign.bean.auth.IdentityInfoResponse;
-import cn.psoho.fastesign.bean.auth.PsnAuthRequest;
-import cn.psoho.fastesign.bean.auth.PsnAuthResponse;
+import cn.psoho.fastesign.bean.auth.*;
 import lombok.RequiredArgsConstructor;
 
 /**
@@ -32,12 +29,6 @@ public class PsnAuthService {
      * https://open.esign.cn/doc/opendoc/auth3/vssvtu
      * <p>
      * 查询个人认证信息
-     * <p>
-     * 【注意事项】
-     * <p>
-     * 入参中psnId、psnAccount和psnIDCardNum三个参数只选择一个传入即可查询个人的认证信息。
-     * <p>
-     * 查询优先级为 psnId > psnAccount > psnIDCardNum
      *
      * @param request
      * @return
@@ -45,6 +36,20 @@ public class PsnAuthService {
     public EsignResponse<IdentityInfoResponse> identityInfo(IdentityInfoRequest request) {
         String path = "/v3/persons/identity-info?" + request.toParam();
         return fastEsignService.get(path, IdentityInfoResponse.class);
+    }
+
+
+    /**
+     * https://open.esign.cn/doc/opendoc/auth3/nurtvw
+     * <p>
+     * 查询个人用户授权详情
+     *
+     * @param psnId
+     * @return
+     */
+    public EsignResponse<AuthorizedInfoResponse> authorizedInfo(String psnId) {
+        String path = "/v3/persons/identity-info?psnId=" + psnId;
+        return fastEsignService.get(path, AuthorizedInfoResponse.class);
     }
 
 }
