@@ -134,6 +134,8 @@ public class FastEsignService {
                 .header("Content-MD5", contentMD5)
                 .header("Content-Type", CONTENT_TYPE);
 
+
+
         RequestBody body = null;
         if (StringUtils.isNotBlank(payload)) {
             body = RequestBody.create(payload.getBytes(), MediaType.parse(CONTENT_TYPE));

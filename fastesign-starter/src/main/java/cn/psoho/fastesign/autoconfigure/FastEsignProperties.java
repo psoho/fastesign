@@ -16,12 +16,12 @@ public class FastEsignProperties{
     /**
      * 是否沙盒模式
      */
-    boolean sandbox = true;
+    boolean sandbox;
 
     /**
      * 是否开启调试
      */
-    boolean debug = false;
+    boolean debug;
 
     /**
      * appId
