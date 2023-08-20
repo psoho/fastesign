@@ -58,5 +58,16 @@ public class SignFlowService {
         return fastEsignService.post(path, request, SignFlowSignUrlResponse.class);
     }
 
+    /**
+     * 查询签署流程详情
+     *
+     * @param signFlowId
+     * @return
+     */
+    public EsignResponse<SignFlowDetailResponse> detail(String signFlowId) {
+        String path = "/v3/sign-flow/" + signFlowId + "/detail";
+        return fastEsignService.get(path, SignFlowDetailResponse.class);
+    }
+
 
 }

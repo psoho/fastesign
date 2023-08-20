@@ -65,6 +65,11 @@ public class SignFlowCreateByFileRequest {
          */
         String fileEditPwd;
 
+        /**
+         * 合同编号
+         */
+        String contractNum;
+
     }
 
 
