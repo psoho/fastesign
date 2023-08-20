@@ -66,7 +66,7 @@ public class SignFlowCreateByFileRequest {
         String fileEditPwd;
 
         /**
-         * 合同编号
+         * 合同编号 ： 待验证
          */
         String contractNum;
 
