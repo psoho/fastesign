@@ -6,12 +6,12 @@
     <parent>
         <groupId>cn.psoho</groupId>
         <artifactId>fastesign-parent</artifactId>
-        <version>1.2.1</version>
+        <version>1.2.2</version>
     </parent>
 
     <artifactId>fastesign</artifactId>
     <name>fastesign</name>
-    <version>1.2.1</version>
+    <version>1.2.2</version>
     <packaging>jar</packaging>
 
     <description>

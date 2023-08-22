@@ -24,7 +24,7 @@
 <dependency>
     <groupId>cn.psoho</groupId>
     <artifactId>fastesign-starter</artifactId>
-    <version>1.2.1</version>
+    <version>1.2.2</version>
 </dependency>
 ```
 
