@@ -13,6 +13,10 @@ import java.util.Date;
 @Data
 public class SignFlowNotifyBean {
 
+    public boolean isAction(Action action) {
+        return action != null && action.toString().equals(this.action);
+    }
+
     public enum Action {
         OPERATOR_READ // 签署方-已读通知
         , SIGN_MISSON_COMPLETE // 签署方-签署结果通知
