@@ -13,8 +13,32 @@ import java.util.Date;
 @Data
 public class SignFlowNotifyBean {
 
+    /**
+     * 是否是某个指定的Action
+     *
+     * @param action
+     * @return boolean
+     */
     public boolean isAction(Action action) {
         return action != null && action.toString().equals(this.action);
+    }
+
+    /**
+     * 是否签署完成
+     *
+     * @return boolean
+     */
+    public boolean isSigned() {
+        return Integer.valueOf(2).equals(this.signResult);
+    }
+
+    /**
+     * 是否拒签
+     *
+     * @return boolean
+     */
+    public boolean isReject() {
+        return Integer.valueOf(4).equals(this.signResult);
     }
 
     public enum Action {
@@ -44,8 +68,8 @@ public class SignFlowNotifyBean {
     Date operateTime;
 
     /**
-     *  签署结果
-     *
+     * 签署结果
+     * <p>
      * 2 - 签署完成，3 - 失败，4 - 拒签
      */
     Integer signResult;
