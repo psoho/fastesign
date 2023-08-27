@@ -69,5 +69,16 @@ public class SignFlowService {
         return fastEsignService.get(path, SignFlowDetailResponse.class);
     }
 
+    /**
+     * 下载已签署文件及附属材料
+     *
+     * @param signFlowId
+     * @return
+     */
+    public EsignResponse<SignFlowFileDownloadResponse> fileDownload(String signFlowId) {
+        String path = "/v3/sign-flow/" + signFlowId + "/file-download-url";
+        return fastEsignService.get(path, SignFlowFileDownloadResponse.class);
+    }
+
 
 }
