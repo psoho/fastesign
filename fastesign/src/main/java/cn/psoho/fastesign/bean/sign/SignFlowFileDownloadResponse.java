@@ -20,17 +20,17 @@ public class SignFlowFileDownloadResponse {
     private List<Attachments> attachments; // 附属材料信息
 
     @Data
-    public class Files {
+    public static class Files {
         private String fileId; // 签署文件ID
         private String fileName; // 签署文件名称
-        private String downloadUrl; // 已签署文件下载链接
+        private String downloadUrl; // 已签署文件下载链接（有效期60分钟）
     }
 
     @Data
-    public class Attachments {
+    public static class Attachments {
         private String fileId; // 附属材料文件ID
         private String fileName; // 附属材料文件名称
-        private String downloadUrl; // 附属材料文件下载链接
+        private String downloadUrl; // 附属材料文件下载链接（有效期60分钟）
     }
 
 }

@@ -89,7 +89,7 @@ public class SignFlowService {
      */
     public EsignResponse<SignFlowStartResponse> start(String signFlowId) {
         String path = "/v3/sign-flow/" + signFlowId + "/start";
-        return fastEsignService.get(path, SignFlowStartResponse.class);
+        return fastEsignService.post(path, null, SignFlowStartResponse.class);
     }
 
 
@@ -101,7 +101,7 @@ public class SignFlowService {
      */
     public EsignResponse<SignFlowFinishResponse> finish(String signFlowId) {
         String path = "/v3/sign-flow/" + signFlowId + "/finish";
-        return fastEsignService.get(path, SignFlowFinishResponse.class);
+        return fastEsignService.post(path, null, SignFlowFinishResponse.class);
     }
 
 
