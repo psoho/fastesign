@@ -81,4 +81,28 @@ public class SignFlowService {
     }
 
 
+    /**
+     * 开启签署流程
+     *
+     * @param signFlowId
+     * @return
+     */
+    public EsignResponse<SignFlowStartResponse> start(String signFlowId) {
+        String path = "/v3/sign-flow/" + signFlowId + "/start";
+        return fastEsignService.get(path, SignFlowStartResponse.class);
+    }
+
+
+    /**
+     * 完结签署流程
+     *
+     * @param signFlowId
+     * @return
+     */
+    public EsignResponse<SignFlowFinishResponse> finish(String signFlowId) {
+        String path = "/v3/sign-flow/" + signFlowId + "/finish";
+        return fastEsignService.get(path, SignFlowFinishResponse.class);
+    }
+
+
 }
