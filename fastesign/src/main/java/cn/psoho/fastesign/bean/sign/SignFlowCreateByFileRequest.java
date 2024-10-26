@@ -252,7 +252,9 @@ public class SignFlowCreateByFileRequest {
              */
             @Data
             @Builder
-            public class PsnInfo {
+            @NoArgsConstructor
+            @AllArgsConstructor
+            public static class PsnInfo {
 
                 /**
                  * 个人姓名（必传项，当传psnAccount时）
