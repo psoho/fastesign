@@ -242,7 +242,62 @@ public class SignFlowCreateByFileRequest {
              */
             String psnId;
 
+            /**
+             * 个人签署方身份信息
+             *
+             * 补充说明：
+             *
+             * 已实名用户，若传入的psnInfo与在e签宝绑定的psnAccount一致，则无需重复实名，签署页直接进行签署意愿认证；
+             * 已实名用户，若传入的psnInfo与在e签宝绑定的psnAccount不一致，则接口将会报错，建议核实用户身份信息后重新发起流程；
+             * 未实名用户，签署页将根据传入的身份信息进行用户实名认证。
+             */
             PsnInfo psnInfo;
+        }
+
+        /**
+         * 个人签署方身份信息
+         * <p>
+         * 说明：
+         * - 已实名用户，若传入的psnInfo与在e签宝绑定的psnAccount一致，则无需重复实名，签署页直接进行签署意愿认证；
+         * - 已实名用户，若传入的psnInfo与在e签宝绑定的psnAccount不一致，则接口将会报错，建议核实用户身份信息后重新发起流程；
+         * - 未实名用户，签署页将根据传入的身份信息进行用户实名认证。
+         */
+        @Data
+        @Builder
+        @NoArgsConstructor
+        @AllArgsConstructor
+        public static class PsnInfo {
+
+            /**
+             * 个人姓名（必传项，当传psnAccount时）
+             */
+            private String psnName;
+
+            /**
+             * 个人证件号（可选）
+             */
+            private String psnIDCardNum;
+
+            /**
+             * 个人证件类型（可选）
+             * 可选值:
+             * - CRED_PSN_CH_IDCARD - 中国大陆居民身份证（默认值）
+             * - CRED_PSN_CH_HONGKONG - 香港来往大陆通行证（回乡证）
+             * - CRED_PSN_CH_MACAO - 澳门来往大陆通行证（回乡证）
+             * - CRED_PSN_CH_TWCARD - 台湾来往大陆通行证（台胞证）
+             * - CRED_PSN_PASSPORT - 护照
+             */
+            private String psnIDCardType;
+
+            /**
+             * 个人手机号（运营商实名登记手机号或银行卡预留手机号，仅用于认证，非必传）
+             */
+            private String psnMobile;
+
+            /**
+             * 个人银行卡号（非必传）
+             */
+            private String bankCardNum;
         }
 
 
@@ -499,52 +554,5 @@ public class SignFlowCreateByFileRequest {
         }
 
     }
-
-    /**
-     * 个人签署方身份信息
-     * <p>
-     * 说明：
-     * - 已实名用户，若传入的psnInfo与在e签宝绑定的psnAccount一致，则无需重复实名，签署页直接进行签署意愿认证；
-     * - 已实名用户，若传入的psnInfo与在e签宝绑定的psnAccount不一致，则接口将会报错，建议核实用户身份信息后重新发起流程；
-     * - 未实名用户，签署页将根据传入的身份信息进行用户实名认证。
-     */
-    @Data
-    @Builder
-    @NoArgsConstructor
-    @AllArgsConstructor
-    public static class PsnInfo {
-
-        /**
-         * 个人姓名（必传项，当传psnAccount时）
-         */
-        private String psnName;
-
-        /**
-         * 个人证件号（可选）
-         */
-        private String psnIDCardNum;
-
-        /**
-         * 个人证件类型（可选）
-         * 可选值:
-         * - CRED_PSN_CH_IDCARD - 中国大陆居民身份证（默认值）
-         * - CRED_PSN_CH_HONGKONG - 香港来往大陆通行证（回乡证）
-         * - CRED_PSN_CH_MACAO - 澳门来往大陆通行证（回乡证）
-         * - CRED_PSN_CH_TWCARD - 台湾来往大陆通行证（台胞证）
-         * - CRED_PSN_PASSPORT - 护照
-         */
-        private String psnIDCardType;
-
-        /**
-         * 个人手机号（运营商实名登记手机号或银行卡预留手机号，仅用于认证，非必传）
-         */
-        private String psnMobile;
-
-        /**
-         * 个人银行卡号（非必传）
-         */
-        private String bankCardNum;
-    }
-
 
 }
