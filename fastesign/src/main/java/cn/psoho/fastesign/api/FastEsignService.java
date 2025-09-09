@@ -6,6 +6,7 @@ import cn.psoho.fastesign.utils.DigestUtils;
 import cn.psoho.fastesign.utils.JsonUtils;
 import cn.psoho.fastesign.utils.StringUtils;
 import lombok.*;
+import lombok.extern.slf4j.Slf4j;
 import okhttp3.*;
 import org.jetbrains.annotations.NotNull;
 
@@ -14,6 +15,7 @@ import javax.crypto.spec.SecretKeySpec;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 
+@Slf4j
 public class FastEsignService {
 
     /**
@@ -119,8 +121,8 @@ public class FastEsignService {
         String sign = doSignatureBase64(signString, secret);
 
         if (debug) {
-            System.out.println("signString=" + signString);
-            System.out.println("sign=" + sign);
+            log.info("----------------------------------------------------");
+            log.info("request: sign={}, signString={}", sign, signString);
         }
 
         Request.Builder builder = new Request.Builder()
@@ -135,7 +137,6 @@ public class FastEsignService {
                 .header("Content-Type", CONTENT_TYPE);
 
 
-
         RequestBody body = null;
         if (StringUtils.isNotBlank(payload)) {
             body = RequestBody.create(payload.getBytes(), MediaType.parse(CONTENT_TYPE));
@@ -146,13 +147,14 @@ public class FastEsignService {
         Response r = httpClient.newCall(httpRequest).execute();
         if (!r.isSuccessful()) {
             System.err.println("请求异常: r=" + r);
+            log.error("请求异常: r={}", r);
             return null;
         }
 
         String text = r.body().string();
         if (debug) {
-            System.out.println(text);
-            System.out.println();
+            log.info("----------------------------------------------------");
+            log.info("response: body={}", text);
         }
 
         return text;
